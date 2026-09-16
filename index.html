@@ -130,26 +130,10 @@ body{
   border-bottom:1px solid rgba(10,97,136,.10);
   display:flex; align-items:center; justify-content:center; overflow:hidden;
 }
-.hdr-facets{position:absolute; inset:0; width:100%; height:100%; pointer-events:none}
-.hdr img{
+#hdrLogo{
   position:relative; z-index:2;
-  max-width:89%; max-height:82%; object-fit:contain; display:block;
+  max-width:92%; max-height:91%; object-fit:contain; display:block;
 }
-.hdr img.off{display:none}
-.hdr-empty{
-  position:relative; z-index:2; display:none;
-  font-size:16px; font-weight:700; color:#8fa6b5; border:2px dashed #c6d6e0;
-  border-radius:12px; padding:18px 26px;
-}
-.hdr.empty .hdr-empty{display:block}
-.hdr-btn{
-  position:absolute; z-index:5; top:8px; left:8px;
-  width:34px; height:34px; border-radius:9px; border:0; cursor:pointer;
-  background:rgba(10,97,136,.10); color:var(--teal); font-size:16px; line-height:1;
-  display:flex; align-items:center; justify-content:center;
-}
-.hdr input[type=file]{position:absolute; z-index:6; top:8px; left:8px; width:34px; height:34px; opacity:0; cursor:pointer}
-.hdr.empty input[type=file]{top:0; left:0; width:100%; height:100%}
 
 /* ===================== معرض الصور ===================== */
 .gal{
@@ -278,8 +262,6 @@ body{
 body.exporting .action-bar,
 body.exporting .ptools,
 body.exporting .phint,
-body.exporting .hdr-btn,
-body.exporting .hdr-empty,
 body.exporting #toast,
 body.exporting input[type=file]{display:none !important}
 body.exporting #page{box-shadow:none !important}
@@ -310,7 +292,6 @@ body.exporting .ftr span.txt:focus{background:transparent !important}
   <button class="tb" onclick="printReport()" title="طباعة"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg><span class="lbl">طباعة</span></button>
   <button class="tb main" onclick="exportAsPDFv2()" title="تصدير PDF"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg><span class="lbl">PDF</span></button>
   <button class="tb" onclick="saveAsImage()" title="حفظ صورة"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><span class="lbl">صورة</span></button>
-  <button class="tb" onclick="pickHeader()" title="ترويسة الجهة"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V9.6L12 5.2l7 4.4V21"/><path d="M9.7 21v-5.1h4.6V21"/><path d="M12 2.6v2.6"/></svg><span class="lbl">الترويسة</span></button>
   <button class="tb" onclick="openSheet()" title="تخصيص التقرير"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 0 0 18 4.5 4.5 0 0 0 0-9 4.5 4.5 0 0 1 0-9z"/></svg><span class="lbl">تخصيص</span></button>
 </div>
 
@@ -326,15 +307,7 @@ body.exporting .ftr span.txt:focus{background:transparent !important}
 
   <!-- ===== الترويسة ===== -->
   <header class="hdr" id="hdr">
-    <svg class="hdr-facets" viewBox="0 0 826 192" preserveAspectRatio="none" aria-hidden="true">
-      <path d="M0 0 L120 0 L44 192 L0 192 Z" fill="#f1f5f9"/>
-      <path d="M46 0 L150 0 L86 192 L28 192 Z" fill="#f8fafc"/>
-      <path d="M118 0 L168 0 L120 192 L84 192 Z" fill="#eef4f8" opacity=".7"/>
-    </svg>
     <img id="hdrLogo" src="logo.png" alt="ترويسة الجهة">
-    <div class="hdr-empty">اضغط لرفع ترويسة جهتك (صورة عرضية)</div>
-    <button class="hdr-btn" type="button" title="تغيير الترويسة">🏷️</button>
-    <input type="file" accept="image/*" id="hdrFile">
   </header>
 
   <!-- ===== معرض الصور ===== -->
@@ -401,11 +374,6 @@ body.exporting .ftr span.txt:focus{background:transparent !important}
   </div>
   <p class="hint">النص يتقلّص تلقائياً إذا طال حتى لا يخرج عن الصندوق.</p>
 
-  <h4>أدوات</h4>
-  <div class="opts">
-    <button class="mini" type="button" onclick="resetLogo()">إعادة الترويسة الأصلية</button>
-  </div>
-
   <button class="close" type="button" onclick="closeSheet()">تم</button>
 </div>
 
@@ -420,7 +388,7 @@ const KEY='musawar_v1', IKEY=KEY+'_img_', BASE_W=853;
 const $=(s,r)=>(r||document).querySelector(s), $$=(s,r)=>[...(r||document).querySelectorAll(s)];
 const page=$('#page'), stage=$('#stage'), gal=$('#gal');
 
-let S={theme:'', layout:'a', fs:1, text:'', ftext:'', logo:''};
+let S={theme:'', layout:'a', fs:1, text:'', ftext:''};
 let P={};  /* 1..6 => {src, ox, oy, z} */
 
 /* ---------- تنبيه ---------- */
@@ -525,20 +493,6 @@ $$('.pf').forEach(fr=>{
   fr.addEventListener('pointerup',end); fr.addEventListener('pointercancel',end);
 });
 
-/* ---------- الترويسة ---------- */
-const hdr=$('#hdr'), hdrLogo=$('#hdrLogo');
-hdrLogo.addEventListener('error',()=>{hdrLogo.classList.add('off');hdr.classList.add('empty');});
-hdrLogo.addEventListener('load',()=>{hdrLogo.classList.remove('off');hdr.classList.remove('empty');});
-$('#hdrFile').addEventListener('change',async e=>{
-  const f=e.target.files[0]; if(!f)return;
-  try{
-    S.logo=await shrink(f,1800);
-    hdrLogo.src=S.logo; save(); toast('تم تغيير الترويسة');
-  }catch(err){toast('تعذّر قراءة الصورة');}
-  e.target.value='';
-});
-function resetLogo(){S.logo='';hdrLogo.src='logo.png';save();toast('أُعيدت الترويسة الأصلية');}
-
 /* ---------- الثيمات والتخطيطات ---------- */
 const THEMES=[
   {id:'',        n:'هوية المعهد',  c:'#0a6188'},
@@ -594,11 +548,11 @@ const ORN={
  tr:p=>`<svg xmlns="http://www.w3.org/2000/svg" width="320" height="200" viewBox="0 0 320 200">
   <defs><linearGradient id="c" x1="1" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${p.tr1}"/><stop offset="1" stop-color="${p.tr2}"/></linearGradient></defs>
   <path d="M320 0 L120 0 L320 17 Z" fill="url(#c)"/>
-  <g fill="none" stroke="${p.t}" stroke-opacity=".10" stroke-width="1.1">
-   <path d="M320 150 C250 140 205 92 198 16"/><path d="M320 141 C256 130 214 86 208 16"/>
-   <path d="M320 132 C262 120 223 80 218 16"/><path d="M320 123 C268 110 232 74 228 16"/>
-   <path d="M320 114 C274 100 241 68 238 16"/><path d="M320 105 C280 90 250 62 248 16"/>
-   <path d="M320 96 C286 80 259 56 258 16"/><path d="M320 87 C292 70 268 50 268 16"/>
+  <g fill="none" stroke="${p.t}" stroke-opacity=".085" stroke-width="1.1">
+   <path d="M267 0 Q294 14 320 22"/><path d="M259 0 Q290 21 320 33"/>
+   <path d="M251 0 Q286 28 320 43"/><path d="M243 0 Q282 33 320 52"/>
+   <path d="M235 0 Q278 41 320 64"/><path d="M227 0 Q274 46 320 72"/>
+   <path d="M219 0 Q270 50 320 78"/><path d="M211 0 Q266 57 320 89"/>
   </g>
  </svg>`,
  bt:p=>`<svg xmlns="http://www.w3.org/2000/svg" width="853" height="100" viewBox="0 0 853 100">
@@ -730,7 +684,6 @@ function load(){
       $('#fsRange').value=Math.round((S.fs||1)*100);
       if(S.text)$('#ctext').innerHTML=S.text;
       if(S.ftext)$('#ftext').innerHTML=S.ftext;
-      if(S.logo)hdrLogo.src=S.logo;
     }
   }catch(e){}
   for(let i=1;i<=6;i++){
@@ -824,7 +777,7 @@ async function capture(scale){
           word-spacing:normal!important;word-break:normal!important;
           -webkit-print-color-adjust:exact!important;print-color-adjust:exact!important;color-adjust:exact!important}
           #page{transform:none!important;box-shadow:none!important;opacity:1!important}
-          .action-bar,.sheet,.sheet-bg,#toast,.ptools,.phint,.hdr-btn,.hdr-empty,input[type=file]{display:none!important}`;
+          .action-bar,.sheet,.sheet-bg,#toast,.ptools,.phint,input[type=file]{display:none!important}`;
         doc.head.appendChild(st);
       }
     });
@@ -891,7 +844,6 @@ async function shareReport(){
     }
   }catch(e){ if(e&&e.name==='AbortError')return; console.error(e); toast('تعذّرت المشاركة'); }
 }
-function pickHeader(){ $('#hdrFile').click(); }
 
 /* ---------- الإقلاع ---------- */
 load();
