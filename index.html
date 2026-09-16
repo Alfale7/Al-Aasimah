@@ -11,13 +11,17 @@
 <meta name="robots" content="index, follow">
 
 <meta property="og:type" content="website">
-<meta property="og:title" content="التقرير المصوّر للاجتماعات والفعاليات المدرسية">
-<meta property="og:description" content="وثّق اجتماعاتك وفعالياتك بتقرير مصوّر احترافي بترويسة جهتك — صور قابلة للرفع والتحريك ونص محرَّر وتصدير عالي الجودة.">
+<meta property="og:title" content="معهد العاصمة النمـوذجـي    المدرسية">
+<meta property="og:description" content="هذا التقرير مقدم من منصة التقارير المدرسية الذكية 
+الى معهد العاصمة النمـوذجـي 
+ksa2030.one">
 <meta property="og:locale" content="ar_SA">
 <meta property="og:site_name" content="التقرير المصوّر">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="التقرير المصوّر للاجتماعات والفعاليات المدرسية">
-<meta name="twitter:description" content="نموذج تقرير مصوّر احترافي: ترويسة رسمية، معرض صور، ونص توثيقي — جاهز للتصدير والطباعة.">
+<meta name="twitter:title" content="معهد العاصمة النمـوذجـي    المدرسية">
+<meta name="twitter:description" content="هذا التقرير مقدم من منصة التقارير المدرسية الذكية 
+الى معهد العاصمة النمـوذجـي 
+ksa2030.one">
 <link rel="icon" href="logo.png">
 <link rel="apple-touch-icon" href="logo.png">
 
@@ -130,9 +134,10 @@ body{
   border-bottom:1px solid rgba(10,97,136,.10);
   display:flex; align-items:center; justify-content:center; overflow:hidden;
 }
+.hdr-facets{position:absolute; inset:0; z-index:1; width:100%; height:100%; object-fit:fill; pointer-events:none}
 #hdrLogo{
   position:relative; z-index:2;
-  max-width:92%; max-height:91%; object-fit:contain; display:block;
+  max-width:92%; max-height:85%; object-fit:contain; display:block;
 }
 
 /* ===================== معرض الصور ===================== */
@@ -168,6 +173,7 @@ body{
 .ptools button:hover{background:rgba(4,40,60,.85)}
 .pf input[type=file]{position:absolute; z-index:6; inset:0; opacity:0; cursor:pointer}
 .pf.has input[type=file]{inset:auto; top:6px; left:6px; width:30px; height:30px}
+.ptools button[data-a="rep"]{font-size:14px}
 
 /* تخطيط أ — الأصلي */
 .gal[data-layout="a"] .pf1{grid-column:1/3; height:311px}
@@ -307,17 +313,18 @@ body.exporting .ftr span.txt:focus{background:transparent !important}
 
   <!-- ===== الترويسة ===== -->
   <header class="hdr" id="hdr">
+    <img class="hdr-facets" alt="">
     <img id="hdrLogo" src="logo.png" alt="ترويسة الجهة">
   </header>
 
   <!-- ===== معرض الصور ===== -->
   <section class="gal" id="gal" data-layout="a">
-    <div class="pf pf1" data-i="1"><img alt=""><div class="phint"><b>＋</b>أضف صورة</div><div class="ptools"><button type="button" data-a="zin" title="تكبير">＋</button><button type="button" data-a="zout" title="تصغير">－</button><button type="button" data-a="del" title="حذف">🗑</button></div><input type="file" accept="image/*"></div>
-    <div class="pf pf2" data-i="2"><img alt=""><div class="phint"><b>＋</b>أضف صورة</div><div class="ptools"><button type="button" data-a="zin" title="تكبير">＋</button><button type="button" data-a="zout" title="تصغير">－</button><button type="button" data-a="del" title="حذف">🗑</button></div><input type="file" accept="image/*"></div>
-    <div class="pf pf3" data-i="3"><img alt=""><div class="phint"><b>＋</b>أضف صورة</div><div class="ptools"><button type="button" data-a="zin" title="تكبير">＋</button><button type="button" data-a="zout" title="تصغير">－</button><button type="button" data-a="del" title="حذف">🗑</button></div><input type="file" accept="image/*"></div>
-    <div class="pf pf4" data-i="4"><img alt=""><div class="phint"><b>＋</b>أضف صورة</div><div class="ptools"><button type="button" data-a="zin" title="تكبير">＋</button><button type="button" data-a="zout" title="تصغير">－</button><button type="button" data-a="del" title="حذف">🗑</button></div><input type="file" accept="image/*"></div>
-    <div class="pf pf5" data-i="5"><img alt=""><div class="phint"><b>＋</b>أضف صورة</div><div class="ptools"><button type="button" data-a="zin" title="تكبير">＋</button><button type="button" data-a="zout" title="تصغير">－</button><button type="button" data-a="del" title="حذف">🗑</button></div><input type="file" accept="image/*"></div>
-    <div class="pf pf6" data-i="6"><img alt=""><div class="phint"><b>＋</b>أضف صورة</div><div class="ptools"><button type="button" data-a="zin" title="تكبير">＋</button><button type="button" data-a="zout" title="تصغير">－</button><button type="button" data-a="del" title="حذف">🗑</button></div><input type="file" accept="image/*"></div>
+    <div class="pf pf1" data-i="1"><img alt=""><div class="phint"><b>＋</b>أضف صورة</div><div class="ptools"><button type="button" data-a="zin" title="تكبير">＋</button><button type="button" data-a="zout" title="تصغير">－</button><button type="button" data-a="del" title="حذف الصورة">🗑</button><button type="button" data-a="rep" title="استبدال الصورة">🔁</button></div><input type="file" accept="image/*"></div>
+    <div class="pf pf2" data-i="2"><img alt=""><div class="phint"><b>＋</b>أضف صورة</div><div class="ptools"><button type="button" data-a="zin" title="تكبير">＋</button><button type="button" data-a="zout" title="تصغير">－</button><button type="button" data-a="del" title="حذف الصورة">🗑</button><button type="button" data-a="rep" title="استبدال الصورة">🔁</button></div><input type="file" accept="image/*"></div>
+    <div class="pf pf3" data-i="3"><img alt=""><div class="phint"><b>＋</b>أضف صورة</div><div class="ptools"><button type="button" data-a="zin" title="تكبير">＋</button><button type="button" data-a="zout" title="تصغير">－</button><button type="button" data-a="del" title="حذف الصورة">🗑</button><button type="button" data-a="rep" title="استبدال الصورة">🔁</button></div><input type="file" accept="image/*"></div>
+    <div class="pf pf4" data-i="4"><img alt=""><div class="phint"><b>＋</b>أضف صورة</div><div class="ptools"><button type="button" data-a="zin" title="تكبير">＋</button><button type="button" data-a="zout" title="تصغير">－</button><button type="button" data-a="del" title="حذف الصورة">🗑</button><button type="button" data-a="rep" title="استبدال الصورة">🔁</button></div><input type="file" accept="image/*"></div>
+    <div class="pf pf5" data-i="5"><img alt=""><div class="phint"><b>＋</b>أضف صورة</div><div class="ptools"><button type="button" data-a="zin" title="تكبير">＋</button><button type="button" data-a="zout" title="تصغير">－</button><button type="button" data-a="del" title="حذف الصورة">🗑</button><button type="button" data-a="rep" title="استبدال الصورة">🔁</button></div><input type="file" accept="image/*"></div>
+    <div class="pf pf6" data-i="6"><img alt=""><div class="phint"><b>＋</b>أضف صورة</div><div class="ptools"><button type="button" data-a="zin" title="تكبير">＋</button><button type="button" data-a="zout" title="تصغير">－</button><button type="button" data-a="del" title="حذف الصورة">🗑</button><button type="button" data-a="rep" title="استبدال الصورة">🔁</button></div><input type="file" accept="image/*"></div>
   </section>
 
   <!-- ===== صندوق النص ===== -->
@@ -545,6 +552,14 @@ const ORN={
   <path d="M0 6 Q40 12 118 3" fill="none" stroke="#fff" stroke-opacity=".16" stroke-width="1.1"/>
   <path d="M0 14 Q28 17 74 10" fill="none" stroke="#fff" stroke-opacity=".13" stroke-width="1"/>
  </svg>`,
+ hdr:p=>`<svg xmlns="http://www.w3.org/2000/svg" width="825" height="192" viewBox="0 0 825 192" preserveAspectRatio="none">
+  <defs>
+   <linearGradient id="hl" x1="0" y1="1" x2=".78" y2="0"><stop offset="0" stop-color="${p.pale}" stop-opacity=".78"/><stop offset=".4" stop-color="${p.pale}" stop-opacity=".26"/><stop offset="1" stop-color="${p.pale}" stop-opacity="0"/></linearGradient>
+   <linearGradient id="hr" x1="1" y1="1" x2=".22" y2="0"><stop offset="0" stop-color="${p.pale}" stop-opacity=".72"/><stop offset=".4" stop-color="${p.pale}" stop-opacity=".24"/><stop offset="1" stop-color="${p.pale}" stop-opacity="0"/></linearGradient>
+  </defs>
+  <rect x="0" y="0" width="330" height="192" fill="url(#hl)"/>
+  <rect x="495" y="0" width="330" height="192" fill="url(#hr)"/>
+ </svg>`,
  tr:p=>`<svg xmlns="http://www.w3.org/2000/svg" width="320" height="200" viewBox="0 0 320 200">
   <defs><linearGradient id="c" x1="1" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${p.tr1}"/><stop offset="1" stop-color="${p.tr2}"/></linearGradient></defs>
   <path d="M320 0 L120 0 L320 17 Z" fill="url(#c)"/>
@@ -583,7 +598,7 @@ function svgURI(str){return 'data:image/svg+xml;charset=utf-8,'+encodeURICompone
 function paintOrnaments(){
   const p=PAL[S.theme]||PAL[''];
   const set=(sel,str)=>{const el=$(sel); if(el)el.src=svgURI(str);};
-  set('.orn-tl',ORN.tl(p)); set('.orn-tr',ORN.tr(p)); set('.orn-bt',ORN.bt(p));
+  set('.orn-tl',ORN.tl(p)); set('.orn-tr',ORN.tr(p)); set('.orn-bt',ORN.bt(p)); set('.hdr-facets',ORN.hdr(p));
   $$('#page [data-p]').forEach(el=>{
     const v=p[el.dataset.p]; if(!v)return;
     (el.dataset.at||'stop-color').split(',').forEach(at=>el.setAttribute(at,v));
@@ -591,7 +606,7 @@ function paintOrnaments(){
 }
 /* ضمان فكّ ترميز الزخارف قبل أي التقاط */
 async function ornReady(){
-  await Promise.all($$('.orn').map(im=>{
+  await Promise.all($$('.orn,.hdr-facets').map(im=>{
     if(im.complete&&im.naturalWidth)return im.decode?im.decode().catch(()=>0):0;
     return new Promise(r=>{im.onload=r;im.onerror=r;});
   }));
